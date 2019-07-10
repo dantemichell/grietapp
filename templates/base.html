@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Grietapp - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}"> -->
+        {% block extrahead %} {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="{% url 'index' %}">Grietapp</a>
+            </div>
+            <div class="menubar"> 
+                <div class="menuitems">
+                        <div> <a href="{% url 'index' %}"> Inicio</a> </div>
+                        <div> {% if request.user.is_staff %} <a href="{% url 'home' %}"> Mapa </a> {% else %} <a href="{% url 'newreport' %}"> Nuevo reporte </a> {% endif %} </div>
+                        <div> <a href="{% url 'consultas' %}"> {% if request.user.is_staff %} Reportes {% else %} Historial {% endif %} </a> </div>
+                </div>
+                <div class="userinfo">
+                {% if user.is_authenticated %}
+                    <div>Bienvenido, <b>{{user.first_name}} {{user.last_name}}</b></div>
+                    <div><a href="{% url 'update' %}">Actualizar datos</a></div>
+                    <div><a href="{% url 'logout' %}">Cerrar sesión</a></div> 
+                {% else %}
+                    <div><a href="{% url 'login' %}">Iniciar sesión</a></div>
+                    <div><a href="{% url 'signup' %}">Registrarse</a></div>
+                {% endif %} 
+                </div>
+                </ul>
+            </div>
+        </header>
+        <div class="maincontent">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer>
+            
+            <div style="font-size:2em;">Grietapp</div>
+            <div>Hecho con Django</div>
+            <div>Integrantes: Camilo Castillo, Juan Lucero, Dante Michell.</div>
+        </footer>
+
+
+
+
+
+
+    </body>
+</html>

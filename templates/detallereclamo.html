@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load staticfiles leaflet_tags %}
+{% block title %}Reporte N°{{reporte.id}}{% endblock %}
+{% block extrahead %} 
+    <script src="{% static 'js/function.js' %}"></script>
+    <script src="{% static 'js/function.js' %}"></script>
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+    <style>
+        .leaflet-container { height: 100%; }
+    </style>
+    <script type="text/javascript">
+        var dataurl = '{% url "data" %}';
+
+        window.addEventListener("map:init", function (event) {
+            var map = event.detail.map;
+            // Download GeoJSON data with Ajax
+            fetch(dataurl)
+            .then(function(resp) {
+                return resp.json();
+            })
+            .then(function(data) {
+                L.geoJson(data, {
+                onEachFeature: function onEachFeature(feature, layer) {
+                    var props = feature.properties;
+                    if (feature.properties.id == '{{reporte.id}}'){
+                        var content = `<img width="100" src="${props.imagen_url}"/><p style="word-wrap: break-word;"><b>${props.asunto}</b><br>${props.descripcion}</p><a href="/reportes/detalle/${props.id}">Ver detalle</a>`;
+                        layer.bindPopup(content).togglePopup();
+                    }
+                
+                }}).addTo(map);
+            });
+        });
+
+
+
+        
+    </script>
+
+<!-- 
+
+function idFilter(feature) {
+            if (feature.properties.id === '{{report.id}}') return true
+        }
+        window.addEventListener("map:init", function (event) {
+            var map = event.detail.map;
+            // Download GeoJSON data with Ajax
+            fetch(dataurl)
+            .then(function(resp) {
+                return resp.json();
+            })
+            .then(function(data) {L.geoJson(data,{filter: idFilter}).addTo(map);
+            });
+        });
+
+ -->
+
+
+{% endblock %}
+{% block content %}
+    <div class="formulario">
+        <div class="titulo">
+            Reporte N°{{reporte.id}}
+        </div>
+        
+        <div class="campos">
+                
+            <div class="etiqueta">Reportado por</div>
+            {{reporte.user.first_name}} {{reporte.user.last_name }}.<br> Rut: {{reporte.user.profile.rut}}
+            <div class="etiqueta">Ubicación </div>
+            {% leaflet_map "main" %}
+            <div class="etiqueta"> Descripción  </div>
+            {{reporte.descripcion}}
+            <div class="etiqueta"> {{form.descripcion.label}}</div>
+            {{form.descripcion}}
+            <div class="etiqueta">Estado: {{reporte.get_estado_display}}</div>
+            <div style="margin:0 auto;height:300px;width:300px;background-image:url({{reporte.imagen.url}});background-size:300px;">
+
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

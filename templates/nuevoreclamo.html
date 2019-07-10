@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles leaflet_tags%}
+{% block title %}Nuevo reporte{% endblock %}
+{% block extrahead %} 
+    <script src="{% static 'js/function.js' %}"></script>
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+
+{% endblock %}
+{% block content %}
+    <div class="formulario">
+        <div class="titulo">
+            Ingresar reporte
+        </div>
+        <div class="campos">
+            <form class="form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <label for="mensaje" class="etiqueta"> {{form.geom.label}}</label><br>
+                <div style="margin:-17px 0px 12px 0px">{{form.geom}}</div>
+                <label for="asunto" class="etiqueta"> {{form.asunto.label}}</label>
+                {{form.asunto}}
+                <label for="direccion" class="etiqueta">{{form.direccion.label}} </label>
+                {{form.direccion}}
+                <label for="foto" class="etiqueta"> {{form.imagen.label}} </label>
+                {{form.imagen}}
+                <label for="mensaje" class="etiqueta"> {{form.descripcion.label}}</label>
+                {{form.descripcion}}
+                
+                <input type="submit" class="boton" value="Ingresar reporte">
+                {{form.errors}}
+            </form>
+
+        </div>
+        
+    </div>
+{% endblock %}

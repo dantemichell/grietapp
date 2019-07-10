@@ -1,0 +1,419 @@
+div,header,footer {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+html{
+    background-color:rgb(9, 109, 134);
+}
+body{
+    margin:0px;
+    width:80%;
+    margin:auto;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    background: tan;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+header .menuitems a, a:link, a:active, a:visited {
+    color:#958ceb;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: white;
+}
+
+
+header .menubar{
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: right;
+
+}
+
+/* Centro */
+header .menubar div{
+    display: inline;
+}
+
+header .userinfo{
+    font-size:0.8em;
+    padding:8px;
+    display: flex;
+    flex-flow: row nowrap;
+    text-align: right;  
+
+}
+
+header .userinfo div{
+    padding: 0 20px;
+    margin:0px -2px;
+    color:#2d1350;
+}
+header .userinfo a, a:visited, a:link, a:active{
+    color:#2d1350;
+}
+
+header .menuitems{
+    background-color: #2d1350;
+    padding-left:100px;
+    border-top-left-radius: 8px;
+}
+
+header .menuitems div{
+    padding:0 20px;
+    font-size:1.5em;
+
+}
+
+header .menuitems div a{
+
+}
+
+
+
+/* TITULO */
+header .logo {
+    font-size: 40px;
+    text-decoration: underline overline;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    text-align:center;
+    padding:5px;
+}
+header .logo a, a:visited, a:hover, a:link, a:active{
+    color:white;
+}
+
+
+
+footer {
+    padding:30px;
+    width: 100%;
+    background-color: cornflowerblue;
+    color: white;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: left;
+}
+
+
+
+.maincontent{
+    background-color:#9ba8d3;
+    width:100%;
+    padding:20px 0 20px 0;
+}
+
+
+.index-container {
+    margin: auto;
+    /* margin-top: 150px; altura de los cuadrados */
+    width: 100%;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.index-container .contenedor {
+    width: 350px;
+    height: 230px;
+
+    transition: height .4s;
+}
+
+/* CAJAS */
+.index-container #uno {
+    background-color: rgb(74, 85, 236);
+}
+
+.index-container #dos {
+    background-color: rgb(182, 206, 46);
+}
+
+.index-container #tres {
+    background-color: rgb(59, 153, 187);
+}
+
+/* ICONOS */
+.index-container .icon {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    background-color: rgba(255,255,255,0.15);
+    width: 40px;
+    padding: 40px; 
+    border-radius: 30%;
+    box-shadow: 0px 0px 0px 30px rgba(255,255,255,0); /* despla hori, despla verti, difuminacion, expansion*/
+    transition: box-shadow 0.4s;
+}
+
+/* TEXTO */
+.index-container .texto{
+    font-size: 19px;
+    color: white;
+    text-align: center;
+    padding-top: 6px;
+    opacity: 0.6;
+    transition: padding-top 0.4s;
+    padding-bottom:20px;
+}
+
+.index-container .contenedor:hover{
+    height: 250px;
+}
+
+.index-container .contenedor:hover p.texto {
+    padding-top: 30px;
+    opacity: 1;
+}
+
+.index-container .contenedor:hover img.icon {
+    box-shadow:  0px 0px 0px 0px rgba(255,255,255,0.6);
+}
+
+
+
+
+
+
+/*                                                                                         FORMULARIO  */
+
+.formulario{
+    background: rgba(255, 255, 255, 0.6);
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;   
+}
+
+.titulo {
+    font-weight: normal;
+    font-size:2em;
+    font-family: sans-serif;
+    color: #3b2fa5;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+
+.formulario .campos .etiqueta {
+    display: block;
+    color: #5c4cf1;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom:3px;
+}
+
+.formulario .campos .form-input, #id_password1, #id_password2, input, textarea {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #5c4cf1;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: rgb(24, 20, 20);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+textarea{
+    resize: none;
+}
+
+.formulario .campos .boton {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    background: #5c4cf1;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 8px;
+}
+
+.formulario .campos .boton:hover {
+    background: #6d5ef3;
+}
+
+.formulario ::placeholder { 
+    color: rgb(34, 34, 34);
+    font-family: Arial, Helvetica, sans-serif;
+  } 
+
+.formulario .registro {
+    text-align: center;
+    padding-top: 15px;
+    font-size:1.5em;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.formulario a, a:visited, a:active, a:link {
+    color:#2d1350;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+
+
+/* TABLAS */
+
+.tabla{
+    background: rgba(255, 255, 255, 0.6);
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+table {
+    background-color: white;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    border:0px;
+}
+
+thead {
+    background-color: #5b517e;
+    color: white;
+    height:2em;
+
+}
+
+td,th {
+    border:0px solid #5b517e;
+    border-width:0px 1px;
+    padding:8px 3px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(206, 205, 205);
+}
+
+tr:hover td {
+    background-color: #5b517e;
+    color: rgb(226, 226, 226);
+}
+
+
+
+/* 
+1920 +
+1024-1300
+760-1023
+360-759
+
+
+
+*/
+
+@media screen and (max-width: 550px) {
+body, .formulario,.tabla,.index-container{
+    width:95%;
+    min-width:430px;
+}
+
+header{
+    font-size:14px;
+    flex-flow:column nowrap;
+}
+
+header .logo{
+    text-align:center;
+    padding:12px;
+}
+
+header .userinfo div{
+    font-size:15px;
+    padding:0 3px;
+}
+header .menuitems {
+    padding-left:0px;
+    text-align:center;
+}
+header .menuitems div{
+    padding:0 10px;
+}
+
+.index-container{
+    flex-flow:column-reverse nowrap;
+    align-items: center;
+    height:700px;
+}
+	
+	
+	
+	
+}
+
+@media screen and (min-width: 551px) and (max-width: 1023px) {
+    body, .formulario,.tabla,.index-container{
+        width:95%;
+        min-width: 550px;
+    }
+    
+    header{
+        font-size:14px;
+        flex-flow:column nowrap;
+    }
+        
+    header .userinfo div{
+        font-size:15px;
+        padding:0 3px;
+    }
+    header .menuitems {
+        padding-left:0px;
+        text-align:center;
+    }
+    header .menuitems div{
+        padding:0 10px;
+    }
+    
+    .index-container{
+        flex-flow:column-reverse nowrap;
+        align-items: center;
+        /* height:700px; */
+    }
+
+
+
+	
+}
+
+
+/* 720p = 1280px */
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+    header .logo {
+        padding-left:40px;
+    }
+    .index-container{
+        height:250px;
+    }
+	
+}
+
+/* 1080p = 1920px*/
+@media screen and (min-width: 1800px) {
+    header .logo {
+        padding-left:40px;
+    }
+    .index-container{
+        height:250px;
+    }
+}

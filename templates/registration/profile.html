@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="formulario">
+    <div class="titulo">
+        Modificar datos
+    </div>
+    <div class="campos">
+        <form class="form" method="POST">
+        {% csrf_token %}
+
+        <!-- class="form-input" -->
+            <label class="etiqueta"> {{user_form.first_name.label}} </label>
+            {{user_form.first_name}}
+            <label class="etiqueta"> {{user_form.last_name.label}} </label>
+            {{user_form.last_name}}
+            <label class="etiqueta"> {{profile_form.rut.label}} </label>
+            {{profile_form.rut}}
+            <label class="etiqueta"> {{profile_form.fechanac.label}} </label>
+            {{profile_form.fechanac}}
+            <label class="etiqueta"> {{user_form.email.label}} </label>
+            {{user_form.email}}
+            <label class="etiqueta"> {{profile_form.direccion.label}} </label>
+            {{profile_form.direccion}}
+            <input type="submit" class="boton" value="Guardar">
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

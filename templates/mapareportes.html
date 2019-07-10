@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles leaflet_tags%}
+{% block title %}Nuevo reporte{% endblock %}
+{% block extrahead %} 
+  <script src="{% static 'js/function.js' %}"></script>
+  {% leaflet_js plugins="forms" %}
+  {% leaflet_css plugins="forms" %}
+  <style>
+    .leaflet-container { height: 100%; }
+  </style>
+  <script type="text/javascript">
+    var dataurl = '{% url "data" %}';
+
+    window.addEventListener("map:init", function (event) {
+      var map = event.detail.map;
+      // Download GeoJSON data with Ajax
+      fetch(dataurl)
+        .then(function(resp) {
+          return resp.json();
+        })
+        .then(function(data) {
+          L.geoJson(data, {
+            onEachFeature: function onEachFeature(feature, layer) {
+              var props = feature.properties;
+              var content = `<img width="100" src="${props.imagen_url}"/><h3>${props.asunto}</h3><p style="word-wrap: break-word;">${props.descripcion}</p><a href="/reportes/detalle/${props.id}">Ver detalle</a>`;
+              layer.bindPopup(content);
+          }}).addTo(map);
+        });
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+<div class="tabla">
+  {% leaflet_map "main" %}
+</div>
+  
+{% endblock %}
+
+    

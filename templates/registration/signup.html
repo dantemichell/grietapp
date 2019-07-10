@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Registro{% endblock %}
+{% block extrahead %} 
+    <script src="{% static 'js/function.js' %}"></script>
+
+{% endblock extrahead %}
+{% block content %}
+    <div class="formulario">
+        <div class="titulo">
+            Registro
+        </div>
+        <div class="campos">
+            <form class="form" method="POST">
+            {% csrf_token %}
+    
+            <!-- class="form-input" -->
+                <label class="etiqueta"> {{form.first_name.label}} </label>
+                {{form.first_name}}
+                <label class="etiqueta"> {{form.last_name.label}} </label>
+                {{form.last_name}}
+                <label class="etiqueta"> {{form.rut.label}} </label>
+                {{form.rut}}
+                <label class="etiqueta"> {{form.fechanac.label}} </label>
+                {{form.fechanac}}
+                <label class="etiqueta"> {{form.email.label}} </label>
+                {{form.email}}
+                <label class="etiqueta"> {{form.username.label}} </label>
+                {{form.username}}
+                <label class="etiqueta"> {{form.direccion.label}} </label>
+                {{form.direccion}}
+                <label class="etiqueta"> {{form.password1.label}}: </label>
+                {{form.password1}}
+                <label class="etiqueta"> {{form.password2.label}} </label>
+                {{form.password2}}
+
+                <input type="submit" class="boton" value="Registrarse!">
+            </form>
+
+        </div>
+        
+    </div>
+{% endblock %}    

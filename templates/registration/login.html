@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block extrahead %} 
+    <script src="{% static 'js/function.js' %}"></script>
+
+{% endblock %}
+{% block content %}
+    <div class="formulario">
+        <div class="titulo">
+            Iniciar sesión
+        </div>
+        <div class="campos">
+            <form  class="form" method="POST">
+            {% csrf_token %}
+            
+                
+                <label for="usuario" class="etiqueta"> {{form.username.label}} </label>
+                
+                {{form.username}}
+                <label for="pass" class="etiqueta"> {{form.password.label}} </label>
+                {{form.password}}
+
+                <input type="submit" class="boton" value="Ingresar">
+    
+                
+            </form>
+
+            <div class="registro">
+                <a href="{% url 'signup' %}"> ¿No tienes una cuenta? Regístrate gratis! </a>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    {% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Inicio{% endblock %}
+{% block extrahead %} 
+    <script src="{% static 'js/function.js' %}"></script>
+{% endblock extrahead %}
+{% block content %}
+<div class="index-container">
+    <div class="contenedor" id="uno">
+        <a href=""> <img class="icon" src="media/info.png" alt=""> </a>
+        <p class="texto">Información</p>
+    </div>
+            
+    <div class="contenedor" id="dos">
+        <a href="{% url 'newreport' %}"> <img class="icon" src="media/reporte.png" alt=""> </a>
+        <p class="texto">Nuevo reporte</p>
+    </div>
+                        
+    <div class="contenedor" id="tres">
+        <a href="{% url 'consultas' %}"> <img class="icon" src="media/consultas.png" alt=""> </a>
+        <p class="texto">Historial</p>
+    </div>
+</div>
+{% endblock %}    
