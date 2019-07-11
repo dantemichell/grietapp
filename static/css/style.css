@@ -217,6 +217,27 @@ footer {
     margin-bottom:3px;
 }
 
+.formulario .fecha{
+    display:flex;
+    justify-content: space-between;
+}
+
+.formulario select {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #5c4cf1;
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: rgb(24, 20, 20);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+
 .formulario .campos .form-input, #id_password1, #id_password2, input, textarea {
     background: rgba(255, 255, 255, 0.7);
     border: none;
