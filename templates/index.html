@@ -18,7 +18,7 @@
                         
     <div class="contenedor" id="tres">
         <a href="{% url 'consultas' %}"> <img class="icon" src="media/consultas.png" alt=""> </a>
-        <p class="texto">Historial</p>
+        <p class="texto">{% if request.user.is_staff %} Reportes {% else %} Historial {% endif %}</p>
     </div>
 </div>
 {% endblock %}    

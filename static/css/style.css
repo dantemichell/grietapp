@@ -47,8 +47,8 @@ header .menubar div{
 }
 
 header .userinfo{
-    font-size:0.8em;
-    padding:8px;
+    font-size:0.7em;
+    padding:7px;
     display: flex;
     flex-flow: row nowrap;
     text-align: right;  
@@ -56,7 +56,7 @@ header .userinfo{
 }
 
 header .userinfo div{
-    padding: 0 20px;
+    padding: 0 10px;
     margin:0px -2px;
     color:#2d1350;
 }
@@ -183,6 +183,9 @@ footer {
 
 
 
+.tabla #main {
+    height:450px;
+}
 
 
 
@@ -340,7 +343,7 @@ header .logo{
 }
 
 header .userinfo div{
-    font-size:15px;
+    font-size:1em;
     padding:0 3px;
 }
 header .menuitems {
@@ -374,7 +377,7 @@ header .menuitems div{
     }
         
     header .userinfo div{
-        font-size:15px;
+        font-size:1.2em;
         padding:0 3px;
     }
     header .menuitems {
